@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.online.system.web.dao.VersionDao">
+    <!--查询所有版本信息-->
+    <select id="queryVersion" resultType="com.online.system.web.entity.Version">
+		select
+		id,
+		case version_type when 'add' then '新增'
+			when 'update' then '更新'
+			when 'optimize' then '优化'
+			end as version_type,
+		description,
+		system_version,
+		create_time,
+		create_user
+		from
+			t_online_version
+		WHERE
+		1= 1
+		<if test="versionType != null and versionType !=''" >
+			AND version_type = #{versionType}
+		</if >
+		order by create_time desc
+	</select>
+</mapper>

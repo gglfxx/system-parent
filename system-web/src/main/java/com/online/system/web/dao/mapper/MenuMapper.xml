@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.online.system.web.dao.MenuDao">
+    <!--根据当前用户查询菜单-->
+    <select id="queryMenu" resultType="com.online.system.web.entity.Menu">
+        SELECT
+			a.id,
+			a.NAME as title,
+			a.icon,
+			a.url as href,
+			a.parent_id as parentId
+		FROM
+			t_online_resource a
+		JOIN t_online_role_resource b ON a.id = b.resource_id
+		AND a.use_flag = 0
+		AND a.delete_flag = 0
+		JOIN t_online_user_role c ON b.role_id = c.role_id
+		JOIN t_online_user d ON c.user_id = d.id
+		AND d.use_flag = 0
+		AND d.delete_flag = 0
+		WHERE
+		1= 1
+		<if test="username != null and username !=''" >
+			AND d.username = #{username}
+		</if >
+		<if test="menuType != null and menuType !=''" >
+			AND a.menu_type = #{menuType}
+		</if >
+	</select>
+	<!--查询所有菜单-->
+	<select id="queryAllMenu" resultType="com.online.system.web.entity.Menu">
+		SELECT
+		id,
+		name as title,
+		icon,
+		url as href,
+		parent_id as parentId,
+		sort
+		FROM
+		t_online_resource
+		WHERE
+		1= 1
+		<if test="menuType != null and menuType !=''" >
+			AND menu_type = #{menuType}
+		</if >
+	</select>
+	<!--根据主键逻辑删除菜单-->
+	<update id="deleteById" parameterType="com.online.system.web.entity.Menu">
+		update t_online_resource
+			set delete_flag = 1,
+			    update_user=#{updateUser},
+			    update_time=#{updateTime,jdbcType=TIMESTAMP}
+		where id = #{id}
+	</update>
+</mapper>
