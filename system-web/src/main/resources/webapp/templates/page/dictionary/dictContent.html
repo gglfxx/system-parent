@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>数据字典详情</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../css/public.css" media="all" />
+</head>
+<style type="text/css">
+    .layui-table-tool {
+        background: white;
+    }
+</style>
+<body>
+<div class="layui-online-container">
+    <div class="layui-online-main">
+        <!-- 表头工具栏  -->
+        <script type="text/html" id="dictContentBar">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon layui-icon-add-1"></i>新增</button>
+                <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="refresh" type="reset"><i class="layui-icon layui-icon-refresh-3"></i>刷新</button>
+            </div>
+        </script>
+        <table id="dictContentTable" class="layui-table" lay-filter="dictContentTable"></table>
+        <script type="text/html" id="operate">
+            <a class="layui-btn layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+        </script>
+    </div>
+</div>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/tools.js"></script>
+<script type="text/javascript" src="dictContent.js"></script>
+</body>
+</html>

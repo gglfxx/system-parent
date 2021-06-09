@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="webkit" name="renderer">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,height=device-height  initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+          name="viewport">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../../css/public.css" media="all"/>
+    <title>新增配置</title>
+</head>
+<body>
+<div class="layui-online-main">
+	<form class="layui-form layui-online-form " lay-filter="propAddForm">
+		<div class="layui-form-item layui-col-md8">
+			<label class="layui-form-label required">配置代码</label>
+			<div class="layui-input-block">
+				<input type="text" name="sysCode" lay-verify="required" autocomplete="off" lay-reqtext="配置代码不能为空"
+					   class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item layui-col-md8">
+			<label class="layui-form-label required">配置名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="sysName" autocomplete="off" class="layui-input" lay-verify="required"
+					   autocomplete="off" lay-reqtext="配置名称不能为空">
+			</div>
+		</div>
+		<div class="layui-form-item layui-col-md8">
+			<label class="layui-form-label">参数值</label>
+			<div class="layui-input-block">
+				<input type="text" name="sysVal" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item" style="padding-left: 40%;">
+			<div class="layui-input-block">
+				<button type="button" class="layui-btn" lay-submit lay-filter="saveBtn">提交</button>
+				<button type="button" class="layui-btn layui-btn-primary" onclick="iframeClose()">取消</button>
+			</div>
+		</div>
+	</form>
+</div>
+</body>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/tools.js"></script>
+<script type="text/javascript" src="properties_add.js"></script>
+</html>

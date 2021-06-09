@@ -1,0 +1,3 @@
+# Project exclude paths
+/system-common/target/
+/system-web/target/
