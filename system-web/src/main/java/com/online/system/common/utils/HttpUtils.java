@@ -2,6 +2,7 @@ package com.online.system.common.utils;
 
 import java.io.IOException;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,6 +41,8 @@ public class HttpUtils {
 		if(data instanceof JwtAuthenticatioToken){
 			token = (JwtAuthenticatioToken) data;
 			jwtToken = token.getToken();
+			/*Cookie sessionCookie = new Cookie( "access_token", jwtToken);
+			response.addCookie(sessionCookie);*/
 		}else if(data instanceof AuthenticationException){
 			//处理登陆失败后
 			failed = (AuthenticationException) data;

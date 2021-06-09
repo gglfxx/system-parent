@@ -3,6 +3,14 @@ server:
   port: 8080
   servlet:
     context-path: /online
+  tomcat:
+    threads:
+      #最大线程数
+      max: 150
+      #最小线程数
+      min-spare: 10
+    uri-encoding: utf-8
+    max-connections: 6000
 #数据源配置
 spring:
   datasource:
