@@ -1,13 +1,12 @@
 package com.online.system.common.utils;
 
 import java.io.IOException;
-
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.online.system.web.entity.Result;
-import com.online.system.web.security.JwtAuthenticatioToken;
+import com.online.system.web.entity.ResultStatus;
+import com.online.system.web.security.JwtAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -32,21 +31,19 @@ public class HttpUtils {
 	 * @throws IOException
 	 */
 	public static void write(HttpServletResponse response, Object data) throws IOException {
-		JwtAuthenticatioToken token = null;
+		JwtAuthenticationToken token = null;
 		AuthenticationException failed = null;
-		int code = 0;
+		int code = ResultStatus.SUCCESS;
 		String msg = null;
 		String jwtToken = null;
 		//处理登陆成功后
-		if(data instanceof JwtAuthenticatioToken){
-			token = (JwtAuthenticatioToken) data;
+		if(data instanceof JwtAuthenticationToken){
+			token = (JwtAuthenticationToken) data;
 			jwtToken = token.getToken();
-			/*Cookie sessionCookie = new Cookie( "access_token", jwtToken);
-			response.addCookie(sessionCookie);*/
 		}else if(data instanceof AuthenticationException){
 			//处理登陆失败后
 			failed = (AuthenticationException) data;
-			code = 1;
+			code = ResultStatus.ERROR;
 			msg = failed.getMessage();
 		}
 		response.setContentType("application/json; charset=utf-8");

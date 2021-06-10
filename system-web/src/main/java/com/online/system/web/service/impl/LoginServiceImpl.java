@@ -1,7 +1,7 @@
 package com.online.system.web.service.impl;
 
 import com.online.system.web.entity.Result;
-import com.online.system.web.security.JwtAuthenticatioToken;
+import com.online.system.web.security.JwtAuthenticationToken;
 import com.online.system.web.service.LoginService;
 import com.online.system.common.utils.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class LoginServiceImpl implements LoginService{
         int code = 1;
         String jwtToken = null;
         // 系统登录认证
-        JwtAuthenticatioToken token = SecurityUtil.login(request, username, password, authenticationManager);
+        JwtAuthenticationToken token = SecurityUtil.login(request, username, password, authenticationManager);
         if(token!=null){
             jwtToken = token.getToken();
             code = 0;

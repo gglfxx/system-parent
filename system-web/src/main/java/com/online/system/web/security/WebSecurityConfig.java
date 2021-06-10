@@ -11,9 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
 
 /**
@@ -80,12 +78,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 其他所有请求需要身份认证
                 .anyRequest().authenticated()
                 .and()
+                //处理登陆
                 .formLogin()
                 .loginPage("/login.html") //登录页面 不设限访问
                 .loginProcessingUrl("/login")
                 .permitAll()
                 .and()
+                //处理登出
                 .logout().logoutUrl("/logout")
+                //自定义处理登出成功后的方法
                 .logoutSuccessHandler(new LogoutHandler())
                 .and()
                 .exceptionHandling()

@@ -10,22 +10,22 @@ import org.springframework.security.core.GrantedAuthority;
  * @author guigl
  * @date
  */
-public class JwtAuthenticatioToken extends UsernamePasswordAuthenticationToken {
+public class JwtAuthenticationToken extends UsernamePasswordAuthenticationToken {
 
 	private static final long serialVersionUID = 1L;
 	
 	private String token;
 
-    public JwtAuthenticatioToken(Object principal, Object credentials){
+    public JwtAuthenticationToken(Object principal, Object credentials){
         super(principal, credentials);
     }
     
-    public JwtAuthenticatioToken(Object principal, Object credentials, String token){
+    public JwtAuthenticationToken(Object principal, Object credentials, String token){
     	super(principal, credentials);
     	this.token = token;
     }
 
-    public JwtAuthenticatioToken(Object principal, Object credentials, Collection<? extends GrantedAuthority> authorities, String token) {
+    public JwtAuthenticationToken(Object principal, Object credentials, Collection<? extends GrantedAuthority> authorities, String token) {
     	super(principal, credentials, authorities);
     	this.token = token;
     }
@@ -37,9 +37,4 @@ public class JwtAuthenticatioToken extends UsernamePasswordAuthenticationToken {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 }

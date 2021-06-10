@@ -59,11 +59,11 @@ spring:
     port: 7001
     database: 1
     timeout: 10000
-    jedis:
+    lettuce:
       pool:
         max-active: 8
-        max-wait: 10000
-        min-idle: 0
+        max-wait: 1000
+        min-idle: 1
         max-idle: 8
   #资源配置
   resources:

@@ -57,7 +57,7 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
         }
 
         username = username.trim();
-        JwtAuthenticatioToken authRequest = new JwtAuthenticatioToken(username, password);
+        JwtAuthenticationToken authRequest = new JwtAuthenticationToken(username, password);
         // Allow subclasses to set the "details" property
         setDetails(request, authRequest);
         return this.getAuthenticationManager().authenticate(authRequest);
@@ -87,7 +87,7 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
         //this.successHandler.onAuthenticationSuccess(request, response, authResult);
         //getSuccessHandler().onAuthenticationSuccess(request, response, authResult);
         // 生成并返回token给客户端，后续访问携带此token
-        JwtAuthenticatioToken token = new JwtAuthenticatioToken(null, null, JwtTokenUtils.generateToken(authResult));
+        JwtAuthenticationToken token = new JwtAuthenticationToken(null, null, JwtTokenUtils.generateToken(authResult));
         HttpUtils.write(response, token);
     }
 
@@ -103,9 +103,9 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         //super.unsuccessfulAuthentication(request, response, failed);
         //清除登陆上下文
-        //SecurityContextHolder.clearContext();
+        SecurityContextHolder.clearContext();
         //记住失败
-        //getRememberMeServices().loginFail(request,response);
+        getRememberMeServices().loginFail(request,response);
         //提示错误信息
         HttpUtils.write(response,failed);
     }
