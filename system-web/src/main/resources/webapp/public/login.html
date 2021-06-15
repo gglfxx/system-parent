@@ -1,56 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login.css">
-    <script src="bootstrap/js/jquery-1.12.4.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/tools.js"></script>
-    <script src="js/login.js"></script>
-    <title>登陆</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理系统</title>
+    <!-- App CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/core.css" rel="stylesheet" type="text/css" />
+    <link href="css/components.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
-<style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-</style>
 <body>
-<div class="login text-center">
-    <form class="form-login" action="javascript:void(0);">
-        <h1 class="h3 mb-3 font-weight-normal">后台管理</h1>
-        <label for="username" class="sr-only">用户名</label>
-        <input type="text" id="username" class="form-control" placeholder="用户名" required autofocus>
-        <label for="password" class="sr-only">密码</label>
-        <input type="password" id="password" class="form-control" placeholder="密码" required>
-        <div class="checkbox mb-3 text-left">
-            <label>
-                <input type="checkbox" value="remember-me">记住我
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" id="login_btn" type="submit">登陆</button>
-    </form>
-</div>
-<div class="footer">
 
+<div class="account-pages"></div>
+<div class="clearfix"></div>
+<div class="wrapper-page">
+    <div class="text-center">
+        <a href="index.html" class="logo"><span>system</span></a>
+        <h5 class="text-muted m-t-0 font-600">后台管理系统</h5>
+    </div>
+    <div class="m-t-40 card-box">
+        <div class="text-center">
+            <h4 class="text-uppercase font-bold m-b-0">登录</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal m-t-20" action="javascript:void(0);">
+                <div class="form-group ">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="text" required="" placeholder="username" id="username">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="password" required="" placeholder="password" id="password">
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <div class="col-xs-12">
+                        <div class="checkbox checkbox-custom">
+                            <input id="checkbox-signup" type="checkbox">
+                            <label for="checkbox-signup">
+                                记住我
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group text-center m-t-30">
+                    <div class="col-xs-12">
+                        <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">登录</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
 </div>
+<!-- jQuery  -->
+<script src="bootstrap/js/jquery-1.12.4.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/login.js"></script>
 </body>
-<script type="text/javascript">
-    $(function (){
-        $(".footer").load("footer.html");
-    })
-</script>
 </html>

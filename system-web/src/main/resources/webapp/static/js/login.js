@@ -1,7 +1,7 @@
 //登陆
 let urlPath = onlineSystem.contextPath();
 $(function(){
-    $("#login_btn").click(function(){
+    $(".btn").click(function(){
         const username = $("#username").val();
         const password = $("#password").val();
         //参数
