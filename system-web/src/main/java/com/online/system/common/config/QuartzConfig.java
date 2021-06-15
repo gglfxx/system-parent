@@ -1,3 +1,4 @@
+/*
 package com.online.system.common.config;
 
 import org.quartz.Scheduler;
@@ -5,9 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
+*/
 /**
  * 定时任务配置
- */
+ *//*
+
 @Configuration
 public class QuartzConfig {
 
@@ -21,9 +24,12 @@ public class QuartzConfig {
         return schedulerFactoryBean;
     }
 
-    /** 创建schedule **/
+    */
+/** 创建schedule **//*
+
     @Bean(name = "scheduler")
     public Scheduler scheduler() {
         return schedulerFactoryBean().getScheduler();
     }
 }
+*/

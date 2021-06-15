@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/login.js"></script>
+    <title>登陆</title>
+</head>
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+<body>
+<div class="login text-center">
+    <form class="form-login" action="javascript:void(0);">
+        <h1 class="h3 mb-3 font-weight-normal">后台管理</h1>
+        <label for="username" class="sr-only">用户名</label>
+        <input type="text" id="username" class="form-control" placeholder="用户名" required autofocus>
+        <label for="password" class="sr-only">密码</label>
+        <input type="password" id="password" class="form-control" placeholder="密码" required>
+        <div class="checkbox mb-3 text-left">
+            <label>
+                <input type="checkbox" value="remember-me">记住我
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" id="login_btn" type="submit">登陆</button>
+    </form>
+</div>
+<div class="footer">
+
+</div>
+</body>
+<script type="text/javascript">
+    $(function (){
+        $(".footer").load("footer.html");
+    })
+</script>
+</html>

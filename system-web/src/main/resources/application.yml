@@ -3,6 +3,9 @@ server:
   port: 8080
   servlet:
     context-path: /online
+    # 修改tomcat配置
+    # 1、修改yml文件
+    # 2、springboot2.0X以上定制ConfigurableServletWebServerFactory
   tomcat:
     threads:
       #最大线程数
@@ -67,7 +70,7 @@ spring:
         max-idle: 8
   #资源配置
   resources:
-    static-locations: classpath:/webapp/templates/,classpath:/webapp/static/
+    static-locations: classpath:/webapp/public/,classpath:/webapp/static/
   #thymeleaf配置
   thymeleaf:
     cache: false

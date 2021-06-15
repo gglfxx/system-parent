@@ -16,8 +16,8 @@ import java.util.Date;
 
 /**
  * 自定义处理登出
- * 处理手动跳转到登录页
- * 前后端分离状态返回
+ * 1、处理手动跳转到登录页
+ * 2、前后端分离状态返回
  */
 public class LogoutHandler implements LogoutSuccessHandler {
     @Override
