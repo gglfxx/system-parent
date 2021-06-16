@@ -36,7 +36,7 @@ public class IndexHandler {
     //字典管理
     @RequestMapping("sysMenu/dictManage")
     public String dictManage(){
-        return "page/dictionary/dictionary.html";
+        return "dictionary/dictionary.html";
     }
 
     //图片管理

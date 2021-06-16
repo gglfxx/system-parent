@@ -1,10 +1,3 @@
-/**
-* Theme: Adminto Admin Template
-* Author: Coderthemes
-* Module/App: Main Js
-*/
-
-
 !function($) {
     "use strict";
     const sideMenu = function () {

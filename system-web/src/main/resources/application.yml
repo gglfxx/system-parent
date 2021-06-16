@@ -76,7 +76,7 @@ spring:
     cache: false
     servlet:
       content-type: text/html
-    prefix: classpath:/webapp/templates/
+    prefix: classpath:/webapp/public/
     mode: LEGACYHTML5
   mvc:
     static-path-pattern: /**

@@ -44,11 +44,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //放行静态资源
         web.ignoring()
                 .antMatchers(
-                        "/config/changeImage",
                         "/**/*.css",
                         "/**/*.js",
                         "/images/**",
                         "/bootstrap/**",
+                        "/fonts/**",
                         "/footer.html",
                         "/favicon.ico"
                         );

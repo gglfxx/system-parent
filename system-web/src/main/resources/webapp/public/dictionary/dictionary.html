@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../js/tools.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div class="card-body">
+        <a href="javascript:;">这是一个点击事件</a>
+        <p class="content"></p>
+    </div>
+</div>
+<script>
+    let urlPath = onlineSystem.contextPath(),
+        jwtToken = onlineSystem.getToken();
+    $("a").click(function(){
+        let param = {
+            dictCode:'',
+            dictName:'',
+            page: 1,
+            limit: 10
+        },url = urlPath + "/dict/findDict?v=" + Math.random();
+        $.ajax({
+            url: url,
+            data: param,
+            headers: {
+                token:jwtToken
+            },
+            type: "GET",
+            async: false,
+            dataType: 'json',
+            success: function (res) {
+                console.log(res);
+                if(res!=null){
+                    let code = res.code;
+                    if(code==1001){
+                        window.location.href=urlPath+"/login.html";
+                    }else{
+                        $(".content").html(JSON.stringify(res.data));
+                    }
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>
